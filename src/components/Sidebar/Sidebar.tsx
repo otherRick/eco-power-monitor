@@ -19,12 +19,14 @@ export default function Sidebar() {
     >
       <header
         onClick={() => setIsSidebarExpanded(!isSidebarExpanded)}
-        className='flex items-center cursor-pointer pl-6 justify-start mb-5'
+        className='flex items-center cursor-pointer pl-7 justify-start mb-5'
       >
-        <div className='flex gap-4  self-start'>
+        <div className='flex gap-4 self-start'>
           <Bars3Icon className='w-5 h-5 text-zinc-300' />
           {(isSidebarExpanded || hovered) && (
-            <p className='text-zinc-400'>{isSidebarExpanded ? 'Fechar Menu' : 'Fixar Menu'}</p>
+            <p className='text-brand-grey7 text-md'>
+              {isSidebarExpanded ? 'Fechar Menu' : 'Fixar Menu'}
+            </p>
           )}
         </div>
       </header>
