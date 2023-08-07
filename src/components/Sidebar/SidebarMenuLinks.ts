@@ -27,7 +27,7 @@ interface SideBarMenuLinksType {
   subMenu: SubMenuDataType[];
 }
 
-export const SideBarMenuLinks: SideBarMenuLinksType[] = [
+export const SidebarMenuLinks: SideBarMenuLinksType[] = [
   {
     name: 'Highlights',
     path: '/highlights',

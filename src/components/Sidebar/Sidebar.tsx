@@ -3,7 +3,7 @@ import { Divider } from '../Divider';
 import { Bars3Icon } from '@heroicons/react/24/outline';
 import { useLayout } from '../../contexts/LayoutContext';
 
-import { PowerTrackerIcon } from '../icons/powertracker';
+import { EcoPowerMonitorIcon } from '../icons/powertracker';
 import { useHovered } from './useHovered';
 
 export default function Sidebar() {
@@ -36,11 +36,11 @@ export default function Sidebar() {
 
       {isSidebarExpanded || hovered ? (
         <div className='bg-zinc-900 h-10 rounded-br-xl flex gap-4 pt-4 px-5 pb-8'>
-          <PowerTrackerIcon /> <p className='text-white'>Power Tracker</p>
+          <EcoPowerMonitorIcon /> <p className='text-white'>EcoPower Monitor</p>
         </div>
       ) : (
         <div className='pb-5 pt-4 px-5 '>
-          <PowerTrackerIcon />
+          <EcoPowerMonitorIcon />
         </div>
       )}
     </aside>

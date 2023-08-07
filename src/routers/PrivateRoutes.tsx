@@ -15,9 +15,9 @@ export default function PrivateRoutes() {
       <BrowserRouter>
         <div className='flex'>
           <Sidebar />
-          <div className={`${!isSidebarExpanded && 'ml-[70px]'}`}>
+          <div className={`flex flex-1 flex-col ${!isSidebarExpanded && 'ml-[70px]'}`}>
             <Header />
-            <main className='w-full h-full sm:overflow-y-auto overflow-x-hidden custom-scrollbar'>
+            <main className='flex-1 sm:overflow-y-auto overflow-x-hidden custom-scrollbar'>
               <Routes>
                 <Route path='/' element={<Highlights />} />
                 <Route path='/highlights' element={<Highlights />} />

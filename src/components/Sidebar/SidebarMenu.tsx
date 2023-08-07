@@ -1,15 +1,15 @@
 import { ArrowRightOnRectangleIcon, Cog6ToothIcon } from '@heroicons/react/20/solid';
 import { Divider } from '../Divider';
 import { SidebarMenuItem } from './SidebarMenuItem';
-import { SideBarMenuLinks } from './SideBarMenuLinks';
+import { SidebarMenuLinks } from './SidebarMenuLinks';
 import { Link, useLocation } from 'react-router-dom';
 import { useLayout } from '../../contexts/LayoutContext';
 
-interface SideBarMenuProps {
+interface SidebarMenuProps {
   hovered: boolean;
 }
 
-export default function SidebarMenu({ hovered }: SideBarMenuProps) {
+export default function SidebarMenu({ hovered }: SidebarMenuProps) {
   const { pathname } = useLocation();
   const { isSidebarExpanded } = useLayout();
   const showTitle = hovered || isSidebarExpanded;
@@ -22,42 +22,38 @@ export default function SidebarMenu({ hovered }: SideBarMenuProps) {
   return (
     <div className='h-full overflow-y-auto overflow-x-hidden justify-between flex flex-col custom-scrollbar'>
       <ul>
-        {SideBarMenuLinks.map(({ icon, name, path, itemCounter, subMenu }) => {
-          return (
-            <li key={path}>
-              <SidebarMenuItem
-                haveSubMenu={subMenu.length > 0}
-                icon={icon}
-                route={path}
-                itemCounter={itemCounter}
-                title={showTitle && name}
-              />
-              <div className='pl-16 gap-1 flex flex-col '>
-                {pathname.includes(path) && showTitle
-                  ? subMenu.map(({ subMenuName, subMenuPath }) => {
-                      return (
-                        <Link key={subMenuPath} to={`${path}${subMenuPath}`}>
-                          <p
-                            className={`${getSubmenuClass(
-                              subMenuPath
-                            )} "text-brand-grey7 hover:text-brand-orange hover:text-opacity-20"   `}
-                          >
-                            {subMenuName}
-                          </p>
-                        </Link>
-                      );
-                    })
-                  : null}
-              </div>
-            </li>
-          );
-        })}
+        {SidebarMenuLinks.map(({ icon, name, path, itemCounter, subMenu }) => (
+          <li key={path}>
+            <SidebarMenuItem
+              haveSubMenu={subMenu.length > 0}
+              icon={icon}
+              route={path}
+              itemCounter={itemCounter}
+              title={showTitle && name}
+            />
+            <div className='pl-16 gap-1 flex flex-col '>
+              {pathname.includes(path) && showTitle
+                ? subMenu.map(({ subMenuName, subMenuPath }) => (
+                    <Link key={subMenuPath} to={`${path}${subMenuPath}`}>
+                      <p
+                        className={`${getSubmenuClass(
+                          subMenuPath
+                        )} "text-brand-grey7 hover:text-brand-orange hover:text-opacity-20"   `}
+                      >
+                        {subMenuName}
+                      </p>
+                    </Link>
+                  ))
+                : null}
+            </div>
+          </li>
+        ))}
       </ul>
       <ul className='flex flex-col w-full gap-1 mt-2'>
         {showTitle ? <Divider /> : null}
-
         <li>
           <SidebarMenuItem
+            indicator={false}
             icon={Cog6ToothIcon}
             itemCounter={null}
             title={showTitle && 'Configurações'}
@@ -66,6 +62,7 @@ export default function SidebarMenu({ hovered }: SideBarMenuProps) {
         </li>
         <li>
           <SidebarMenuItem
+            indicator={false}
             icon={ArrowRightOnRectangleIcon}
             itemCounter={null}
             title={showTitle && 'Sair da conta'}
