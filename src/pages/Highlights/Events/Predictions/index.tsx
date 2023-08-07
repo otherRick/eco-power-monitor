@@ -1,14 +1,14 @@
-import { ExclamationTriangleIcon } from '@heroicons/react/24/outline';
-import { Accordion } from '../../../../../components/Accordion';
+import { HandRaisedIcon } from '@heroicons/react/24/outline';
+import { Accordion } from '../../../../components/Accordion';
 
-export const Risks = () => {
+export const Predictions = () => {
   return (
     <div className='pt-4'>
       <Accordion
         description='no período selecionado'
-        counter={19}
-        counterText='Riscos'
-        icon={ExclamationTriangleIcon}
+        counter={10}
+        counterText='Alertas preditivos'
+        icon={HandRaisedIcon}
       >
         <div className='border border-brand-contour p-3 rounded-md '>
           <p>

@@ -1,14 +1,14 @@
-import { HandRaisedIcon } from '@heroicons/react/24/outline';
-import { Accordion } from '../../../../../components/Accordion';
+import { MegaphoneIcon } from '@heroicons/react/24/outline';
+import { Accordion } from '../../../../components/Accordion';
 
-export const Predictions = () => {
+export const Occurrences = () => {
   return (
     <div className='pt-4'>
       <Accordion
         description='no período selecionado'
-        counter={10}
-        counterText='Alertas preditivos'
-        icon={HandRaisedIcon}
+        counter={22}
+        counterText='Novas ocorrências'
+        icon={MegaphoneIcon}
       >
         <div className='border border-brand-contour p-3 rounded-md '>
           <p>

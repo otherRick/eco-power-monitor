@@ -11,9 +11,12 @@ export default {
           secondary: '#EFF2F4',
           contour: '#CFD4E5',
           wire02: '#212429',
+          red2: '#F42829',
           grey2: '#0B1C2C',
+          grey5: '#615E69',
           grey7: '#8E91A4',
           grey8: '#8C97A1',
+          grey11: '#E5E9EE',
           grey12: '#ECEDEF',
           grey14: '#F9F9F9'
         }
@@ -22,7 +25,10 @@ export default {
     fontSize: {
       xs: ['10px', '15px'],
       sm: ['12px', '18px'],
-      md: ['16px', '22px']
+      ms: ['14px', '20px'],
+      md: ['16px', '22px'],
+      ml: ['20px', '27px'],
+      lg: ['28px', '30px']
     }
   }
 };
