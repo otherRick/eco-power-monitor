@@ -1,23 +1,24 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 // src/components/ProgressBar.tsx
 
 import React from 'react';
-import Highcharts from 'highcharts';
+import Highcharts, { SeriesOptionsType, TooltipPositionerCallbackFunction } from 'highcharts';
 import HighchartsReact from 'highcharts-react-official';
 import HighchartsAnnotations from 'highcharts/modules/annotations';
 
 HighchartsAnnotations(Highcharts);
 
 interface ProgressBarProps {
-  stackedData: { data: number[]; color: string }[];
-  type: string;
-  hight: string;
-  barWidth: number;
-  dataLabels: boolean;
-  positioner: () => void;
+  stackedData?: { data: number[]; color: string }[] & SeriesOptionsType[] & any;
+  type?: string;
+  hight?: string;
+  barWidth?: number;
+  dataLabels?: boolean;
+  positioner?: TooltipPositionerCallbackFunction;
   chartWidth?: number;
-  showLegend: boolean;
-  plotLines: Highcharts.YAxisPlotLinesOptions[];
-  viewAnnotantion: boolean;
+  showLegend?: boolean;
+  plotLines?: Highcharts.YAxisPlotLinesOptions[];
+  viewAnnotantion?: boolean;
 }
 
 const ProgressBar: React.FC<ProgressBarProps> = ({
@@ -29,7 +30,7 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
   chartWidth = 0,
   positioner,
   barWidth = 10,
-  hight = '10'
+  hight = 'h-[40px]'
 }) => {
   const options: Highcharts.Options = {
     chart: {
@@ -46,17 +47,19 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
       text: ''
     },
     xAxis: {
-      categories: ['Progress'],
+      categories: ['03h- 00', '03h- 00', '03h- 00', '03h- 00', '03h- 00', '03h- 00'],
       visible: false
+      // min: 0,
+      // max: 5
     },
     yAxis: {
       min: 0,
       max: 100,
-      allowDecimals: false,
+      allowDecimals: true,
       alternateGridColor: 'white',
       gridLineColor: ' #e6e6e6',
       gridLineWidth: 0,
-      visible: true,
+      visible: plotLines,
       plotLines,
       labels: {
         enabled: false
@@ -89,7 +92,7 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
         return '03-00h';
       },
       itemStyle: {
-        color: 'red',
+        color: '#8A9197',
         cursor: 'pointer',
         fontSize: '0.75em',
         fontWeight: 'bold',
@@ -119,7 +122,7 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
       enabled: false
     },
 
-    series: stackedData.map(({ data, color }, index) => ({
+    series: stackedData.map(({ data, color }, index: number) => ({
       name: `Bar ${index + 1}`,
       data,
       color
@@ -127,7 +130,7 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
   };
 
   return (
-    <div className={`h-${hight} items-end flex`}>
+    <div className={`${hight} items-end flex`}>
       <HighchartsReact
         containerProps={{ style: { height: '100%' } }}
         highcharts={Highcharts}

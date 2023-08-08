@@ -1,4 +1,4 @@
-import ProgressBar from '../../../../../../../../components/ProgressBar';
+import ProgressBar from '../../../../../../../components/ProgressBar';
 
 interface DailyGoalChartTwoProps {
   goal: number;
@@ -38,7 +38,7 @@ export const DailyGoalChartTwo = ({ goal = 69 }: DailyGoalChartTwoProps) => {
       plotLines={plotLines}
       positioner={positioner}
       type='bar'
-      hight='10'
+      hight='h-[35px]'
       stackedData={stackedData}
     />
   );

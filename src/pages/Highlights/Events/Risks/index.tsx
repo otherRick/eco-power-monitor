@@ -1,7 +1,7 @@
 import { ExclamationTriangleIcon } from '@heroicons/react/24/outline';
-import { AvailabilityStatus } from './components/AvailabilityStatus';
 import { Accordion } from '../../../../components/Accordion';
-import { GoalsAnalyses } from './components/GoalsAnalyses';
+import { GoalsAnalyses } from './GoalsAnalyses';
+import { AvailabilityStatus } from './AvailabilityStatus';
 
 export const Risks = () => {
   // const annotations = [

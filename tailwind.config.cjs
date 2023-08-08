@@ -11,6 +11,7 @@ export default {
           secondary: '#EFF2F4',
           contour: '#CFD4E5',
           wire02: '#212429',
+          blue2: '#1B49E0',
           red2: '#F42829',
           grey2: '#0B1C2C',
           grey5: '#615E69',
