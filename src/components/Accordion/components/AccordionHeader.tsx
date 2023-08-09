@@ -21,9 +21,9 @@ export const AccordionHeader = ({
   return (
     <div
       onClick={onClick}
-      className={`p-2 h-12 bg-brand-grey14 ${
+      className={`p-2 max-h-[51px] bg-brand-grey14 ${
         toggleAccordion && 'border-b-0'
-      } border border-brand-contour rounded-tr-md rounded-tl-md flex items-center justify-between cursor-pointer`}
+      } border max-w-[733.5px] border-brand-contour rounded-tr-md rounded-tl-md flex items-center justify-between cursor-pointer`}
     >
       <div className=' p-1  gap-4 items-center flex'>
         <Icon className='w-5 h-5 text-brand-grey8' />

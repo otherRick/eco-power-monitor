@@ -2,12 +2,16 @@ import { LiveStatus } from './components/LiveStatus';
 import { PageTitle } from './components/PageTitle';
 import { InputDate } from './components/InputDate';
 
-export const Status = () => {
+interface StatusProps {
+  status: boolean;
+}
+
+export const Status = ({ status }: StatusProps) => {
   return (
     <div className=' border-r border-brand-contour justify-between flex flex-1 p-3'>
       <div className='flex gap-2 items-center'>
         <PageTitle />
-        <LiveStatus status={true} />
+        <LiveStatus status={status} />
       </div>
       <InputDate />
     </div>

@@ -4,7 +4,7 @@ import { DailyGoal } from './DailyGoal';
 
 export const GoalsAnalyses = () => {
   //Here I set the APi entrace for the goals
-  const firstGoal = 329.09;
+  const firstGoal = 200.09;
   const secondGoal = 329.09;
 
   return (

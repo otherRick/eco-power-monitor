@@ -364,6 +364,11 @@
   resolved "https://registry.yarnpkg.com/@heroicons/react/-/react-2.0.18.tgz#f80301907c243df03c7e9fd76c0286e95361f7c1"
   integrity sha512-7TyMjRrZZMBPa+/5Y8lN0iyvUU/01PeMGX2+RE7cQWpEUIcb4QotzUObFkJDejj/HUH4qjP/eQ0gzzKs2f+6Yw==
 
+"@highcharts/map-collection@^2.1.0":
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/@highcharts/map-collection/-/map-collection-2.1.0.tgz#a3e40a4d73586028f22c758ebfed0161986320f3"
+  integrity sha512-oS7ELhgvltY7OVPG4EFHHcdLRSKu2Fwvg2B9eXRo/Get4rZPUoLwv5i+bUcPb5JYLxzhHVNniuw01yMJAnXJ8g==
+
 "@humanwhocodes/config-array@^0.11.10":
   version "0.11.10"
   resolved "https://registry.yarnpkg.com/@humanwhocodes/config-array/-/config-array-0.11.10.tgz#5a3ffe32cc9306365fb3fd572596cd602d5e12d2"
