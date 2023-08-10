@@ -6,6 +6,7 @@ import { useLayout } from '../contexts/LayoutContext';
 import { ExclamationTriangleIcon } from '@heroicons/react/20/solid';
 
 export default function PrivateRoutes() {
+  const LandingPage = lazy(() => import('../pages/landingPage'));
   const Highlights = lazy(() => import('../pages/Highlights/Highlights'));
 
   const { isSidebarExpanded } = useLayout();
@@ -13,13 +14,15 @@ export default function PrivateRoutes() {
   return (
     <Suspense>
       <BrowserRouter>
-        <div className='flex'>
+        <div className='flex h-screen flex-1'>
           <Sidebar />
-          <div className={`flex w-full h-full flex-col ${!isSidebarExpanded && 'ml-[70px]'}`}>
+          <div
+            className={`flex transition-all w-full flex-col ${!isSidebarExpanded && 'ml-[70px]'}`}
+          >
             <Header />
-            <main className='flex-1 sm:overflow-y-auto overflow-x-hidden custom-scrollbar'>
+            <main className='flex-[15_15_0%] sm:overflow-y-auto overflow-x-hidden custom-scrollbar'>
               <Routes>
-                <Route path='/' element={<Highlights />} />
+                <Route path='/' element={<LandingPage />} />
                 <Route path='/highlights' element={<Highlights />} />
 
                 <Route

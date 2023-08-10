@@ -1,7 +1,7 @@
 export const Analyzes = () => {
   return (
-    <div className='flex justify-between p-6'>
-      <div>
+    <div className='flex justify-between w-full bg-red-200 p-6'>
+      <div className='flex flex-col '>
         <p className='text-ml'>Geração Baixa</p>
         <p className='text-md text-brand-grey5'>
           A geração do parque está muito abaixo da meta deste mês

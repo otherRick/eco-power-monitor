@@ -8,7 +8,7 @@ export const GoalsAnalyses = () => {
   const secondGoal = 329.09;
 
   return (
-    <div className='border border-brand-contour rounded-md gap-4  items-center'>
+    <div className='border border-brand-contour rounded-md gap-4 items-center max-w-[684.3px] w-full '>
       <Analyzes />
       <Divider />
       <DailyGoal secondGoal={secondGoal} firstGoal={firstGoal} />

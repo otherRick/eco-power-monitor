@@ -41,7 +41,7 @@ export function SidebarMenuItem({
           )}
         </div>
 
-        <Icon className={`h-5 w-5 ${isActive ? 'text-brand-primary' : 'text-zinc-300'}`} />
+        <Icon className={`w-6 h-6 ${isActive ? 'text-brand-primary' : 'text-zinc-300'}`} />
 
         {title && (
           <div className='w-full justify-between flex'>
@@ -59,11 +59,11 @@ export function SidebarMenuItem({
               {indicator ? (
                 haveSubMenu && isActive ? (
                   <ChevronDownIcon
-                    className={`w-5 h-5 mr-6 ${isActive && `text-zinc-800 font-bold`} `}
+                    className={`w-6 h-6 mr-6 ${isActive && `text-zinc-800 font-bold`} `}
                   />
                 ) : (
                   <ChevronRightIcon
-                    className={`w-5 h-5 mr-6 ${isActive && `text-zinc-800 font-bold`} `}
+                    className={`w-6 h-6 mr-6 ${isActive && `text-zinc-800 font-bold`} `}
                   />
                 )
               ) : null}

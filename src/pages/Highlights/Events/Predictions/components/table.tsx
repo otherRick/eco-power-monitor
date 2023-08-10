@@ -2,89 +2,20 @@ import { useEffect, useRef, useState } from 'react';
 import { CheckIcon, ChevronUpDownIcon } from '@heroicons/react/24/outline';
 import { Scada } from '../../../../../components/icons/scada';
 import { BooleanPerSecond } from '../../../../../Util';
+import { ApiData } from './ApiData';
 
 export const Table = () => {
-  const randomId = () => {
-    return Math.floor(Math.random() * (99999 - 10000 + 1)) + 10000;
-  };
-
-  const initialData = [
-    {
-      id: randomId(),
-      status: true,
-      alarm: 'Item C',
-      assetType: 'Molestie magna',
-      asset: 'ABC-08-01',
-      system: 'Environment',
-      resp: 'Kira Madsen',
-      approved: false,
-      isChecked: false
-    },
-    {
-      id: randomId(),
-      status: true,
-      alarm: 'Item A',
-      assetType: 'Molestie magna',
-      asset: 'ABC-08-01',
-      system: 'Environment',
-      resp: 'Kira Madsen',
-      approved: false,
-      isChecked: false
-    },
-    {
-      id: randomId(),
-      status: true,
-      alarm: 'Item B',
-      assetType: 'Molestie magna',
-      asset: 'ABC-08-01',
-      system: 'Environment',
-      resp: 'Kira Madsen',
-      approved: false,
-      isChecked: false
-    },
-    {
-      id: randomId(),
-      status: true,
-      alarm: 'Item F',
-      assetType: 'Molestie magna',
-      asset: 'ABC-08-01',
-      system: 'Environment',
-      resp: 'Kira Madsen',
-      approved: false,
-      isChecked: false
-    },
-    {
-      id: randomId(),
-      status: true,
-      alarm: 'Item D',
-      assetType: 'Molestie magna',
-      asset: 'ABC-08-01',
-      system: 'Environment',
-      resp: 'Kira Madsen',
-      approved: false,
-      isChecked: false
-    },
-    {
-      id: randomId(),
-      status: true,
-      alarm: 'Item E',
-      assetType: 'Molestie magna',
-      asset: 'ABC-08-01',
-      system: 'Environment',
-      resp: 'Kira Madsen',
-      approved: false,
-      isChecked: false
-    }
-  ];
-
-  const [data, setData] = useState(initialData);
+  const [data, setData] = useState(ApiData);
   const [sortOrder, setSortOrder] = useState<'asc' | 'desc'>('asc');
   const [checked, setChecked] = useState([]);
+  const [checkAction, setCheckAction] = useState([]);
 
-  const inputRefs = useRef([]);
+  const inputRefs = useRef<HTMLInputElement[] | never>([]);
+  const inputActionRefs = useRef<HTMLInputElement[] | never>([]);
 
   useEffect(() => {
     inputRefs.current = inputRefs.current.slice(0, data.length);
+    inputActionRefs.current = inputActionRefs.current.slice(0, data.length);
   }, [data]);
 
   const handleSort = () => {
@@ -113,9 +44,16 @@ export const Table = () => {
     setSortOrder(sortOrder === 'asc' ? 'desc' : 'asc');
   };
 
-  const handleCheckboxChange = (id: number) => {
+  const handleApproveChange = (id: number) => {
     const updatedData = data.map((item) =>
       item.id === id ? { ...item, isChecked: !item.isChecked } : item
+    );
+
+    setData(updatedData);
+  };
+  const handleActionChange = (id: number) => {
+    const updatedData = data.map((item) =>
+      item.id === id ? { ...item, approved: !item.approved } : item
     );
 
     setData(updatedData);
@@ -130,11 +68,22 @@ export const Table = () => {
     inputRefs.current[index].click();
   };
 
+  const handleCheckAction = (index: number) => {
+    if (checkAction.includes(index)) {
+      setCheckAction(checkAction.filter((item) => item !== index));
+    } else {
+      setCheckAction([...checkAction, index]);
+    }
+
+    if (inputActionRefs.current[index]) {
+      inputActionRefs.current[index].click();
+    }
+  };
   return (
-    <div className='max-w-[685px] overflow-x-auto'>
-      <table className='w-full max-w-[816px]'>
-        <thead className='bg-brand-grey10 w-full'>
-          <tr className='text-brand-grey6 text-ms w-full gap-4 flex'>
+    <table className=' flex flex-col max-w-[733px] w-full'>
+      <thead className='w-full max-w-[733px]'>
+        <tr>
+          <div className='w-full bg-brand-grey10 text-brand-grey6 text-ms gap-4 flex'>
             {/* // --------------- ID */}
             <th>
               <div className='w-16 h-16 flex items-center gap-4 justify-center'>
@@ -167,48 +116,48 @@ export const Table = () => {
             </th>
             {/* // --------------- ASSET */}
             <th>
-              <div className='flex items-center w-24 h-16'>
+              <div className='flex items-center  w-24 h-16'>
                 <p>Asset</p>
               </div>
             </th>
             <th>
-              <div className='flex items-center w-24 h-16'>
+              <div className='flex items-center  w-24 h-16'>
                 <p>Origem Sistema</p>
               </div>
             </th>
             <th>
-              <div className='flex items-center justify-center w-20 h-16 text-center'>
+              <div className='flex items-center  justify-center w-20 h-16 text-center'>
                 <p>Resp.</p>
               </div>
             </th>
             <th>
-              <div className='flex items-center justify-center w-16 h-16'>
+              <div className='flex items-center  justify-center w-16 h-16'>
                 <p>Aprovado</p>
               </div>
             </th>
             <th>
-              <div className='flex items-center justify-center w-10 h-16'>
+              <div className='flex items-center justify-center w-16 h-16'>
                 <p>Ações</p>
               </div>
             </th>
-          </tr>
-        </thead>
-        <tbody className='w-full'>
-          {data.map((item, index: number) => {
-            return (
-              <tr
+          </div>
+        </tr>
+      </thead>
+      <tbody>
+        {data.map((item, index: number) => {
+          return (
+            <tr>
+              <div
                 className={`${
                   index % 2 && 'bg-brand-grey14'
                 }  text-brand-grey6  text-ms font-medium w-full gap-4 flex`}
                 key={item.id}
               >
-                {/* // --------------- ALARME */}
                 <td>
                   <div className='flex w-16 h-16 justify-center items-center'>
                     <p>{item.id}</p>
                   </div>
                 </td>
-                {/* // --------------- ALARME */}
                 <td>
                   <div className='flex w-16 h-16 items-center justify-center'>
                     <Scada />
@@ -219,60 +168,53 @@ export const Table = () => {
                     ></div>
                   </div>
                 </td>
-                {/* // --------------- ALARME */}
                 <td>
                   <div className='text-brand-grey2 w-28 h-16 items-center flex justify-center'>
                     {item.alarm}
                   </div>
                 </td>
-                {/* // --------------- ALARME */}
                 <td>
                   <div className='w-20 h-16 flex items-center justify-center'>
                     {item.assetType}
                   </div>
                 </td>
-                {/* // --------------- ALARME */}
                 <td>
-                  <div className='w-24 h-16 items-center justify-center flex'>{item.asset}</div>
+                  <div className='w-24 h-16 items-center  justify-center flex'>{item.asset}</div>
                 </td>
-                {/* // --------------- ALARME */}
                 <td>
-                  <div className='w-24 h-16 items-center justify-center text-center flex'>
+                  <div className='w-24 h-16 items-center  justify-center text-center flex'>
                     {item.system}
                   </div>
                 </td>
-                {/* // --------------- ALARME */}
                 <td>
                   <div className=' w-20 h-16 items-center flex text-center'>{item.resp}</div>
                 </td>
-                {/* // --------------- ALARME */}
                 <td>
                   <div className='w-16 h-16 justify-center items-center flex'>
                     <div
-                      onClick={() => handleCheck(index)}
+                      onClick={() => handleCheckAction(index)}
                       className={`${
-                        !item.isChecked ? ' bg-red-500' : 'bg-blue-500'
-                      } rounded-full w-6 h-6 cursor-pointer`}
+                        item.isChecked && 'bg-brand-green2'
+                      } rounded-full w-6 h-6 cursor-pointer border border-brand-grey9 flex items-center justify-center`}
                     >
-                      {checked.includes(index) && <CheckIcon className='w-5 h-5' />}
+                      {checkAction.includes(index) && (
+                        <CheckIcon className='w-5 h-5 text-white font-bold' />
+                      )}
                     </div>
                     <input
                       type='checkbox'
                       hidden
-                      ref={(el) => (inputRefs.current[index] = el)}
+                      ref={(el) => (inputActionRefs.current[index] = el)}
                       checked={item.isChecked}
-                      onChange={() => handleCheckboxChange(item.id)}
+                      onChange={() => handleApproveChange(item.id)}
                     />
                   </div>
                 </td>
-                {/* // --------------- ALARME */}
                 <td>
-                  <div className='w-10 h-16 justify-center items-center flex '>
+                  <div className='w-16 h-16 justify-center  items-center flex '>
                     <div
                       onClick={() => handleCheck(index)}
-                      className={`${
-                        !item.isChecked ? ' bg-red-500' : 'bg-blue-500'
-                      } rounded-full w-6 h-6 cursor-pointer`}
+                      className={`border border-solid w-7 h-7 cursor-pointer flex items-center justify-center`}
                     >
                       {checked.includes(index) && <CheckIcon className='w-5 h-5' />}
                     </div>
@@ -280,17 +222,17 @@ export const Table = () => {
                       type='checkbox'
                       hidden
                       ref={(el) => (inputRefs.current[index] = el)}
-                      checked={item.isChecked}
-                      onChange={() => handleCheckboxChange(item.id)}
+                      checked={item.approved}
+                      onChange={() => handleActionChange(item.id)}
                     />
                   </div>
                 </td>
-              </tr>
-            );
-          })}
-        </tbody>
-      </table>
-    </div>
+              </div>
+            </tr>
+          );
+        })}
+      </tbody>
+    </table>
   );
 };
 

@@ -48,9 +48,21 @@ const options = {
           capitals = this.series[1];
         newData.forEach((elem) => getTemp(elem, countries, capitals));
       }
-    },
-    backgroundColor: ''
+    }
   },
+  mapView: {
+    center: [0, 45],
+    fitToGeometry: true,
+    maxZoom: 0,
+    zoom: true
+  },
+  series: [
+    {
+      type: 'map',
+      borderColor: 'red',
+      borderWidth: 10
+    }
+  ],
 
   // title: {
   //   text: "Categories of European capitals",

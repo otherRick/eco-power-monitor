@@ -25,9 +25,9 @@ export const AccordionHeader = ({
         toggleAccordion && 'border-b-0'
       } border max-w-[733.5px] border-brand-contour rounded-tr-md rounded-tl-md flex items-center justify-between cursor-pointer`}
     >
-      <div className=' p-1  gap-4 items-center flex'>
+      <div className=' p-1 w-full gap-4 items-center flex'>
         <Icon className='w-5 h-5 text-brand-grey8' />
-        <div className=' bg-brand-grey2 rounded-sm items-center flex justify-center'>
+        <div className=' bg-brand-grey2 rounded-sm items-center flex justify-center max-w-[29px] w-full max-h-[27px] h-full'>
           <p className='text-white text-sm py-1 px-1.5'>{counter}</p>
         </div>
         <p className='text-md text-left text-brand-grey2'>{counterText}</p>
