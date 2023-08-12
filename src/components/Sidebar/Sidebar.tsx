@@ -17,7 +17,7 @@ export default function Sidebar() {
         isSidebarExpanded
           ? 'max-w-[300px] w-full'
           : hovered
-          ? 'w-[300px] absolute z-10 '
+          ? 'w-[300px] absolute z-40 '
           : 'w-[70px] absolute'
       } transition-all z-10 border border-1 rounded-tr-xl rounded-br-xl shadow-sm`}
     >

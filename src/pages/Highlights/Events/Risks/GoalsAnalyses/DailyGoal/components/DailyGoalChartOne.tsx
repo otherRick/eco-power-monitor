@@ -37,6 +37,7 @@ export const DailyGoalChartOne = ({ goal }: DailyGoalChartTwoProps) => {
       chartWidth={158}
       plotLines={plotLines}
       positioner={positioner}
+      containerHeigh={'100%'}
       type='bar'
       hight='h-[35px]'
       stackedData={stackedData}

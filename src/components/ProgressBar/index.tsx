@@ -17,6 +17,7 @@ interface ProgressBarProps {
   positioner?: TooltipPositionerCallbackFunction;
   chartWidth?: number;
   showLegend?: boolean;
+  containerHeigh?: string;
   plotLines?: Highcharts.YAxisPlotLinesOptions[];
   viewAnnotantion?: boolean;
 }
@@ -29,6 +30,7 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
   plotLines,
   chartWidth = 0,
   positioner,
+  containerHeigh = '100%',
   barWidth = 10,
   hight = 'h-[40px]'
 }) => {
@@ -67,6 +69,9 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
       title: {
         enabled: false
       }
+    },
+    legend: {
+      enabled: false
     },
 
     plotOptions: {
@@ -130,9 +135,9 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
   };
 
   return (
-    <div className={`${hight} items-end flex`}>
+    <div className={`${hight}  items-end flex`}>
       <HighchartsReact
-        containerProps={{ style: { height: '100%' } }}
+        containerProps={{ style: { height: containerHeigh } }}
         highcharts={Highcharts}
         options={options}
       />

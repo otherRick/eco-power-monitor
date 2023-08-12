@@ -52,8 +52,8 @@ const options = {
   },
   mapView: {
     center: [0, 45],
-    fitToGeometry: true,
-    maxZoom: 0,
+    // fitToGeometry: true,
+    maxZoom: 1000,
     zoom: true
   },
   series: [
