@@ -1,10 +1,10 @@
-interface AlarmesDatasProps {
+interface AlarmDataProps {
   title: string;
   maxPercent: number;
   color: string;
 }
 
-export const AlarmesDatas: AlarmesDatasProps[] = [
+export const AlarmData: AlarmDataProps[] = [
   {
     title: 'Operando',
     maxPercent: 88,

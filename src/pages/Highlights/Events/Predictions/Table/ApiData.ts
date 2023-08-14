@@ -1,4 +1,4 @@
-interface ApiDataType {
+export interface ApiDataType {
   id: number;
   status: boolean;
   alarm: string;

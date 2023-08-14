@@ -8,8 +8,8 @@ interface AlarmsBarsProps {
 
 export const AlarmBars = ({ color, title, value }: AlarmsBarsProps) => {
   const stackedData = [
-    { data: [100], color: '#E5E9EE' },
-    { data: [value], color: color }
+    { data: [100], color: '#E5E9EE', type: 'bar' as const },
+    { data: [value], color: color, type: 'bar' as const }
   ];
 
   const positioner = () => {

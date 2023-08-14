@@ -5,8 +5,8 @@ interface DailyGoalChartTwoProps {
 }
 export const DailyGoalChartTwo = ({ goal = 69 }: DailyGoalChartTwoProps) => {
   const stackedData = [
-    { data: [60], color: '#E5E9EE' },
-    { data: [30], color: '#F42829' }
+    { type: 'bar' as const, data: [60], color: '#E5E9EE' },
+    { type: 'bar' as const, data: [30], color: '#F42829' }
   ];
 
   const plotLines: Highcharts.YAxisPlotLinesOptions[] = [

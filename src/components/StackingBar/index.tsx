@@ -1,117 +1,14 @@
-// import { HighchartsReact } from 'highcharts-react-official';
-// import Highcharts from 'highcharts';
-
-// export const StackingBar = () => {
-//   const options = {
-//     chart: {
-//       type: 'bar'
-//     },
-//     title: {
-//       text: '',
-//       align: 'left'
-//     },
-//     xAxis: {
-//       labels: {
-//         enabled: true,
-//         align: 'left',
-//         x: 0,
-//         y: 4
-//       },
-//       tickLength: 0,
-//       lineWidth: 0
-//     },
-//     yAxis: {
-//       gridLineColor: '#ECEDEF',
-//       title: {
-//         text: null
-//       },
-//       labels: {
-//         enabled: false
-//       },
-//       gridLineWidth: 0
-//     },
-//     legend: {
-//       enabled: false
-//     },
-//     plotOptions: {
-//       backgroundColor: 'red',
-//       series: {
-//         stacking: 'normal',
-//         dataLabels: {
-//           enabled: true,
-//           inside: true
-//         },
-//         pointWidth: 20
-//       }
-//     },
-//     series: [
-//       {
-//         type: 'bar',
-//         name: 'Ocorrências',
-//         data: [
-//           {
-//             color: '#ECEDEF',
-//             y: 20
-//           }
-//         ],
-//         stack: 1,
-//         dataLabels: {
-//           enabled: true,
-//           format: '{y}',
-//           align: 'right',
-//           verticalAlign: 'right',
-//           x: 100,
-//           y: 0
-//         },
-//         stacking: 'normal'
-//       },
-//       {
-//         type: 'bar',
-//         name: 'Ocorrências',
-//         data: [
-//           {
-//             color: '#17D79B',
-//             y: 90
-//           }
-//         ],
-//         color: '#17D79B',
-//         stack: 1,
-//         dataLabels: {
-//           enabled: false,
-//           format: '{y}',
-//           align: 'right',
-//           verticalAlign: 'right',
-//           x: 10,
-//           y: 0
-//         },
-//         stacking: 'normal'
-//       }
-//     ],
-//     credits: {
-//       enabled: false
-//     }
-//   };
-
-//   return (
-//     <div className='border border-brand-contour p-3 rounded-md h-96 items-center flex'>
-//       <HighchartsReact highcharts={Highcharts} options={options} />
-//     </div>
-//   );
-// };
-
 import { HighchartsReact } from 'highcharts-react-official';
 import Highcharts from 'highcharts';
 
 export const StackingBar = () => {
   const options = {
     chart: {
-      // type: 'bar',
       backgroundColor: '',
       colorByPoint: true,
       height: 250,
       width: 400,
       spacing: [0, 0, 0, 0],
-      // margin: [0, 0, 0, 0],
       borderWidth: 0,
       plotBorderWidth: 0
     },
@@ -205,7 +102,6 @@ export const StackingBar = () => {
           }
         ],
         stack: 1,
-        // color: '#ECEDEF',
         dataLabels: {
           enabled: true,
           format: '{y}',
@@ -265,38 +161,6 @@ export const StackingBar = () => {
         },
         stacking: 'normal'
       }
-      // {
-      //   type: 'bar',
-      //   name: 'Ocorrências',
-      //   data: [100, 12],
-      //   stack: 2,
-      //   color: '#EDEF',
-      //   dataLabels: {
-      //     enabled: true,
-      //     format: '{y}',
-      //     align: 'right',
-      //     verticalAlign: 'bottom',
-      //     x: 30,
-      //     y: 0
-      //   },
-      //   stacking: 'normal'
-      // },
-      // {
-      //   type: 'bar',
-      //   name: 'Ocorrências',
-      //   data: [10, 12],
-      //   color: '#179B',
-      //   stack: 2,
-      //   dataLabels: {
-      //     enabled: false,
-      //     format: '{y}',
-      //     align: 'right',
-      //     verticalAlign: 'bottom',
-      //     x: 30,
-      //     y: 0
-      //   },
-      //   stacking: 'normal'
-      // }
     ],
     credits: {
       enabled: false
@@ -305,10 +169,6 @@ export const StackingBar = () => {
 
   return (
     <div className='border border-brand-contour p-3 rounded-md h-96 items-center flex'>
-      {/* <div>
-        <p>BAR TITLE</p>
-        <p>BAR TITLE</p>
-      </div> */}
       <HighchartsReact highcharts={Highcharts} options={options} />
     </div>
   );

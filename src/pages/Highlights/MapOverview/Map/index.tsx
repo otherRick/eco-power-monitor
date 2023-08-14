@@ -5,7 +5,7 @@ import Highcharts, { Options } from 'highcharts';
 import { colorSets, data } from './mapData';
 import { windmill } from '../../../../components/icons/windmillSVG';
 
-type ChartType = [{ destroy: () => void }] | [];
+export type ChartType = [{ destroy: () => void }] | [];
 
 export const Map = () => {
   const mapRef = useRef<L.Map | null>(null);
@@ -28,15 +28,10 @@ export const Map = () => {
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
 
     const markerCoordinates = [
-      // amaerlo
       { lat: -3.539094, lng: -38.878987 },
-      // vermelhjo
       { lat: -3.533094, lng: -38.909987 },
-      // verder easy
       { lat: -3.517094, lng: -38.915987 },
-      // amarelo 2
       { lat: -3.541094, lng: -38.895987 },
-      // verde full``
       { lat: -3.524094, lng: -38.889987 }
     ];
 

@@ -5,13 +5,15 @@ import HighchartsAnnotations from 'highcharts/modules/annotations';
 
 HighchartsAnnotations(Highcharts);
 
-interface stackedDataProps {
+export interface StackedDataProps {
   data: number[];
   color: string;
 }
 
+export type StackedDataType = { data: number[]; color: string }[] & SeriesOptionsType[];
+
 interface ProgressBarProps {
-  stackedData: { data: number[]; color: string }[] & SeriesOptionsType[];
+  stackedData: StackedDataType;
   type: 'bar' | 'column';
   hight?: string;
   xVisible?: boolean;
@@ -131,7 +133,7 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
       enabled: false
     },
 
-    series: stackedData.map(({ data, color }: stackedDataProps, index: number) => ({
+    series: stackedData.map(({ data, color }: StackedDataProps, index: number) => ({
       type,
       name: `Bar ${index + 1}`,
       data,

@@ -20,11 +20,11 @@ export const DowntimesBars = ({
   targetPercent
 }: DowntimesBarsProps) => {
   const stackedData = [
-    { data: [targetPercent], color: '#ECEDEF' },
-    { data: [peachValue], color: '#FFC599' },
-    { data: [orangeValue], color: '#FF7005' },
-    { data: [redValue], color: '#F42829' },
-    { data: [yellowValue], color: '#E6C84C' }
+    { type: 'bar' as const, data: [targetPercent], color: '#ECEDEF' },
+    { type: 'bar' as const, data: [peachValue], color: '#FFC599' },
+    { type: 'bar' as const, data: [orangeValue], color: '#FF7005' },
+    { type: 'bar' as const, data: [redValue], color: '#F42829' },
+    { type: 'bar' as const, data: [yellowValue], color: '#E6C84C' }
   ];
 
   const positioner = () => {

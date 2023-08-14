@@ -1,4 +1,4 @@
-import ProgressBar from '../../../../../../components/ProgressBar';
+import ProgressBar, { StackedDataType } from '../../../../../../components/ProgressBar';
 
 export const AvailabilityChart = () => {
   const number = [30, 40, 80, 80, 80, 60, 100];
@@ -6,6 +6,7 @@ export const AvailabilityChart = () => {
     y: num,
     color: num >= 80 ? '#E5E9EE' : '#F42829'
   }));
+
   const plotLines: Highcharts.YAxisPlotLinesOptions[] = [
     {
       value: 89,
@@ -34,7 +35,7 @@ export const AvailabilityChart = () => {
         hight='h-[100px]'
         viewAnnotantion={false}
         type='column'
-        stackedData={[{ data: stacks }]}
+        stackedData={[{ data: stacks }] as StackedDataType}
       />
     </div>
   );

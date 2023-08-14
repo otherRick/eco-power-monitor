@@ -1,37 +1,30 @@
 import { CheckIcon } from '@heroicons/react/20/solid';
 import { useEffect, useRef, useState } from 'react';
+import { ApiDataType } from '../../ApiData';
 
-export const CheckBox = ({ item, index, circle, setData, data }) => {
+interface CheckBoxProps {
+  item: ApiDataType;
+  index: number;
+  circle: boolean;
+  setData: (data: ApiDataType[]) => void;
+  data: ApiDataType[];
+}
+
+export const CheckBox = ({ item, index, circle, setData, data }: CheckBoxProps) => {
   const inputActionRefs = useRef<HTMLInputElement[] | never>([]);
-  const [checkAction, setCheckAction] = useState([]);
+  const [checkAction, setCheckAction] = useState<number[]>([]);
 
   useEffect(() => {
     inputActionRefs.current = inputActionRefs.current.slice(0, data.length);
   }, [data]);
 
   const handleApproveChange = (id: number) => {
-    const updatedData = data.map((item) =>
+    const updatedData: ApiDataType[] = data.map((item) =>
       item.id === id ? { ...item, isChecked: !item.isChecked } : item
     );
 
     setData(updatedData);
   };
-  //   const handleActionChange = (id: number) => {
-  //     const updatedData = data.map((item) =>
-  //       item.id === id ? { ...item, approved: !item.approved } : item
-  //     );
-
-  //     setData(updatedData);
-  //   };
-
-  // const handleCheck = (index) => {
-  //   if (checked.includes(index)) {
-  //     setChecked(checked.filter((item) => item !== index));
-  //   } else {
-  //     setChecked([...checked, index]);
-  //   }
-  //   inputRefs.current[index].click();
-  // };
 
   const handleCheckAction = (index: number) => {
     if (checkAction.includes(index)) {
@@ -44,8 +37,6 @@ export const CheckBox = ({ item, index, circle, setData, data }) => {
       inputActionRefs.current[index].click();
     }
   };
-
-  // border border-solid w-7 h-7 cursor-pointer flex items-center justify-center
 
   return (
     <div className='w-16 h-16 justify-center items-center flex'>
@@ -60,7 +51,7 @@ export const CheckBox = ({ item, index, circle, setData, data }) => {
       <input
         type='checkbox'
         hidden
-        ref={(el) => (inputActionRefs.current[index] = el)}
+        ref={(el) => (inputActionRefs.current[index] = el!)}
         checked={item.isChecked}
         onChange={() => handleApproveChange(item.id)}
       />
