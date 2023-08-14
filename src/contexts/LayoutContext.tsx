@@ -23,7 +23,7 @@ export const useLayout = () => useContext(LayoutContext);
  * @returns JSX Element
  */
 export default function LayoutContextProvider({ children }: LayoutContextProviderProps) {
-  const [isSidebarExpanded, setIsSidebarExpanded] = useState(true);
+  const [isSidebarExpanded, setIsSidebarExpanded] = useState(false);
 
   return (
     <LayoutContext.Provider
