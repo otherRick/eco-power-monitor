@@ -14,6 +14,7 @@ export default {
           wire02: '#212429',
           yellow3: '#FFDE54',
           green2: '#1FD3A6',
+          blue1: '#4B52DB',
           blue2: '#1B49E0',
           red2: '#F42829',
           red3: '#F53E3E',

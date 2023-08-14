@@ -1,14 +1,12 @@
-import { lazy, Suspense } from 'react';
+import { Suspense } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Sidebar from '../components/Sidebar/Sidebar';
 import { Header } from '../components/Header/Header';
 import { useLayout } from '../contexts/LayoutContext';
-import { ExclamationTriangleIcon } from '@heroicons/react/20/solid';
 import Highlights from '../pages/Highlights';
+import LandingPage from '../pages/landingPage';
 
 export default function PrivateRoutes() {
-  const LandingPage = lazy(() => import('../pages/LandingPage'));
-
   const { isSidebarExpanded } = useLayout();
 
   return (
@@ -28,9 +26,12 @@ export default function PrivateRoutes() {
                 <Route
                   path='*'
                   element={
-                    <div className='h-screen flex-col flex items-center justify-center'>
-                      <ExclamationTriangleIcon className='w-36 h-36' />
-                      <p>Não autorizado</p>
+                    <div className='h-screen flex-col flex bg-brand-blue1 items-center justify-center'>
+                      <p className='text-brand-grey14 text-lg'>Under Construction</p>
+                      <img
+                        src='../../src/assets/under-construction.gif'
+                        alt='under-construction'
+                      />
                     </div>
                   }
                 />
