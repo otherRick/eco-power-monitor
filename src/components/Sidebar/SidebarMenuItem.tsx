@@ -31,7 +31,7 @@ export function SidebarMenuItem({
         className={`flex items-center text-left text-sm ${
           isActive
             ? ' text-brand-grey7 font-medium gap-[20px] '
-            : 'text-brand-grey7 hover:bg-red-500 hover:bg-opacity-20 hover:font-medium text-font-regular '
+            : 'text-brand-grey7 hover:bg-brand-grey10 hover:bg-opacity-20 hover:font-medium text-font-regular '
         }   transition-colors w-full gap-6 h-[50px] ${!layout && 'aspect-square'}`}
         to={route}
       >

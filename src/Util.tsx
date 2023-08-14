@@ -1,7 +1,8 @@
 import { useCallback, useEffect, useState } from 'react';
 
-export const BooleanPerSecond = (speed: 'fast' | 'normal' | 'slow') => {
+export const useBooleanPerSecond = (speed: 'fast' | 'normal' | 'slow') => {
   const [generateRandomBooleanEverySecond, setGenerateRandomBooleanEverySecond] = useState(false);
+
   const time = useCallback(() => {
     if (speed === 'slow') {
       return 1900;
@@ -10,11 +11,12 @@ export const BooleanPerSecond = (speed: 'fast' | 'normal' | 'slow') => {
       return 1500;
     }
     if (speed === 'fast') {
-      return 1500;
+      return 300;
     }
   }, [speed]);
 
   const speedSelector = time();
+
   useEffect(() => {
     const intervalId = setInterval(() => {
       const currentSecond = new Date().getSeconds();

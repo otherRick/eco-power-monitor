@@ -3,10 +3,16 @@ import ProgressBar from '../../../../../../../components/ProgressBar';
 interface DailyGoalChartTwoProps {
   goal: number;
 }
+
+interface stackedDataProps {
+  type: 'bar' | 'column';
+  data: number[];
+  color: string;
+}
 export const DailyGoalChartOne = ({ goal }: DailyGoalChartTwoProps) => {
-  const stackedData = [
-    { data: [60], color: '#E5E9EE' },
-    { data: [30], color: '#F42829' }
+  const stackedData: stackedDataProps[] = [
+    { type: 'bar', data: [60], color: '#E5E9EE' },
+    { type: 'bar', data: [30], color: '#F42829' }
   ];
 
   const plotLines: Highcharts.YAxisPlotLinesOptions[] = [

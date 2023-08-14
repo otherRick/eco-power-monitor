@@ -1,9 +1,10 @@
 import { ArrowDownIcon } from '@heroicons/react/20/solid';
 import { ArrowUpIcon } from '@heroicons/react/24/solid';
-import { BooleanPerSecond } from '../../../../../Util';
+import { useBooleanPerSecond } from '../../../../../util';
 
 export const WindSense = () => {
-  const wind = BooleanPerSecond('fast') ? 3.9 : 3.8;
+  const wind = useBooleanPerSecond('normal') ? 3.9 : 3.8;
+
   return (
     <div className='flex flex-col px-2 items-start border-l border-brand-grey7'>
       <div className='flex gap-1 items-center justify-center'>

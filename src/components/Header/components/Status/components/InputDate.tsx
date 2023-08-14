@@ -2,7 +2,7 @@ import { CalendarIcon, ChevronDownIcon } from '@heroicons/react/20/solid';
 
 export const InputDate = () => {
   return (
-    <div className='w-fit items-center gap-3 mr-5 flex cursor-pointer'>
+    <div className='w-fit items-center gap-3 mr-5 flex  hover:bg-brand-grey8 hover:bg-opacity-10 cursor-pointer'>
       <div className='bg-black p-1 rounded-md w-8 h-8 flex items-center justify-center '>
         <CalendarIcon className='w-5 h-5 text-white' />
       </div>

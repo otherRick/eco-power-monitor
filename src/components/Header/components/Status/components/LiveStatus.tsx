@@ -1,4 +1,4 @@
-import { BooleanPerSecond } from '../../../../../Util';
+import { useBooleanPerSecond } from '../../../../../util';
 
 interface LiveStatusProps {
   status: boolean;
@@ -6,13 +6,14 @@ interface LiveStatusProps {
 
 export const LiveStatus = ({ status }: LiveStatusProps) => {
   const transition = 'transition-colors duration-500 ease-in-out';
+  const booleanPerSecond = useBooleanPerSecond('fast');
 
   return (
     <div
       className={`items-center flex ${
         status
           ? `${
-              BooleanPerSecond('fast')
+              booleanPerSecond
                 ? `border-brand-red2 ${transition}  `
                 : `border-brand-primary ${transition}  `
             }`
@@ -23,14 +24,12 @@ export const LiveStatus = ({ status }: LiveStatusProps) => {
         <div className='flex items-center gap-1'>
           <div
             className={` ${
-              BooleanPerSecond('fast')
-                ? `bg-brand-red2 ${transition}`
-                : `bg-brand-primary ${transition}`
+              booleanPerSecond ? `bg-brand-red2 ${transition}` : `bg-brand-primary ${transition}`
             } rounded-full w-2 h-2`}
           ></div>
           <p
             className={`font-medium text-ms ${
-              BooleanPerSecond('fast')
+              booleanPerSecond
                 ? `text-brand-red2 ${transition}`
                 : `text-brand-primary ${transition}`
             }`}

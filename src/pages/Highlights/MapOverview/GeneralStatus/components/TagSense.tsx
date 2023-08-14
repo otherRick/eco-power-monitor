@@ -8,6 +8,7 @@ interface TagSenseProps {
 
 export const TagSense = ({ title = 'Sem sinal', value = '02', tagColor }: TagSenseProps) => {
   let color = 'bg-brand-grey11';
+
   switch (tagColor) {
     case 'red':
       color = 'bg-brand-red3';
@@ -22,9 +23,14 @@ export const TagSense = ({ title = 'Sem sinal', value = '02', tagColor }: TagSen
       color;
       break;
   }
+
   return (
     <div className='flex cursor-pointer w-fit h-8 bg-brand-grey13 items-center '>
-      <div className={`${color} w-8 h-8 flex items-center text-brand-grey2 justify-center`}>
+      <div
+        className={`${color} w-8 h-8 flex items-center ${
+          tagColor === 'red' ? 'text-brand-grey14' : 'text-brand-grey2'
+        } justify-center`}
+      >
         {value}
       </div>
       <div className='flex items-center ml-2'>

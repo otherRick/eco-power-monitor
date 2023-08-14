@@ -1,14 +1,9 @@
 import ProgressBar from '../../../../../../components/ProgressBar';
-import { useLayout } from '../../../../../../contexts/LayoutContext';
 
 export const AvailabilityChart = () => {
-  const { isSidebarExpanded } = useLayout();
-
-  //Here is the entracy for the API data
-  const number = [40, 60, 85, 95, 50, 100];
-
-  const stackedData = number.map((num) => ({
-    data: [num],
+  const number = [30, 40, 80, 80, 80, 60, 100];
+  const stacks = number.map((num) => ({
+    y: num,
     color: num >= 80 ? '#E5E9EE' : '#F42829'
   }));
   const plotLines: Highcharts.YAxisPlotLinesOptions[] = [
@@ -31,14 +26,15 @@ export const AvailabilityChart = () => {
   return (
     <div className='p-6'>
       <ProgressBar
-        showLegend
-        chartWidth={isSidebarExpanded ? 0 : 750}
+        xLegend={['00h - 03h', '04h - 07h', '08h - 12h', '13h - 16h', '17h - 20h', 'Agora']}
+        xVisible
+        chartWidth={750}
         barWidth={86}
         plotLines={plotLines}
         hight='h-[100px]'
         viewAnnotantion={false}
         type='column'
-        stackedData={stackedData}
+        stackedData={[{ data: stacks }]}
       />
     </div>
   );

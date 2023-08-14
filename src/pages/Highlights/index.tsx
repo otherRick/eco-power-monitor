@@ -1,10 +1,10 @@
 import { Events } from './Events';
-import { MapInfo } from './MapInfo';
+import { MapOverview } from './MapOverview';
 
 export default function Highlights() {
   return (
     <div className='flex h-full'>
-      <MapInfo />
+      <MapOverview />
       <Events />
     </div>
   );

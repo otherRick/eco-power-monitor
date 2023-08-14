@@ -7,7 +7,10 @@ export const Availability = () => {
           O parque está tendo muitas quedas de disponibilidade
         </p>
       </div>
-      <button className='border w-28 h-10 items-center flex justify-center' title='Ver análises'>
+      <button
+        className='border p-2 h-10 items-center  hover:bg-brand-grey10 hover:bg-opacity-20 flex justify-center'
+        title='Ver análises'
+      >
         <p className='text-ms '>Verificar WTGS</p>
       </button>
     </div>

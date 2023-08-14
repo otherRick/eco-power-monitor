@@ -1,6 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-// src/components/ProgressBar.tsx
-
 import React from 'react';
 import Highcharts, { SeriesOptionsType, TooltipPositionerCallbackFunction } from 'highcharts';
 import HighchartsReact from 'highcharts-react-official';
@@ -8,15 +5,22 @@ import HighchartsAnnotations from 'highcharts/modules/annotations';
 
 HighchartsAnnotations(Highcharts);
 
+interface stackedDataProps {
+  data: number[];
+  color: string;
+}
+
 interface ProgressBarProps {
-  stackedData?: { data: number[]; color: string }[] & SeriesOptionsType[] & any;
-  type?: string;
+  stackedData: { data: number[]; color: string }[] & SeriesOptionsType[];
+  type: 'bar' | 'column';
   hight?: string;
+  xVisible?: boolean;
   barWidth?: number;
+  showLegend?: boolean | undefined;
   dataLabels?: boolean;
   positioner?: TooltipPositionerCallbackFunction;
   chartWidth?: number;
-  showLegend?: boolean;
+  xLegend?: string[];
   containerHeigh?: string;
   plotLines?: Highcharts.YAxisPlotLinesOptions[];
   viewAnnotantion?: boolean;
@@ -25,9 +29,11 @@ interface ProgressBarProps {
 const ProgressBar: React.FC<ProgressBarProps> = ({
   stackedData,
   type = 'bar',
-  showLegend = false,
+  xLegend,
   dataLabels = false,
   plotLines,
+  xVisible = false,
+  showLegend = false,
   chartWidth = 0,
   positioner,
   containerHeigh = '100%',
@@ -37,9 +43,7 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
   const options: Highcharts.Options = {
     chart: {
       type: type,
-      // backgroundColor: 'rgba(255, 0, 0, 0.3)',
       spacing: [0, 0, 0, 0],
-      // margin: [0, 0, 0, 0],
       borderWidth: 0,
       height: 0,
       plotBorderWidth: 0,
@@ -49,10 +53,14 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
       text: ''
     },
     xAxis: {
-      categories: ['03h- 00', '03h- 00', '03h- 00', '03h- 00', '03h- 00', '03h- 00'],
-      visible: false
-      // min: 0,
-      // max: 5
+      categories: xLegend,
+      visible: xVisible,
+      labels: {
+        style: {
+          color: '#8A9197',
+          fontFamily: 'inter'
+        }
+      }
     },
     yAxis: {
       min: 0,
@@ -61,19 +69,15 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
       alternateGridColor: 'white',
       gridLineColor: ' #e6e6e6',
       gridLineWidth: 0,
-      visible: plotLines,
+      visible: true,
       plotLines,
       labels: {
         enabled: false
       },
       title: {
-        enabled: false
+        text: ''
       }
     },
-    legend: {
-      enabled: false
-    },
-
     plotOptions: {
       bar: {
         stacking: 'normal',
@@ -83,6 +87,9 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
         }
       },
       series: {
+        //Here I had to disable the types cause this props existe but it is not typed
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        //@ts-ignore
         pointWidth: barWidth,
         groupPadding: 1
       },
@@ -92,10 +99,7 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
     },
     legend: {
       enabled: showLegend,
-      // labelFormat: 'name',
-      labelFormatter: function () {
-        return '03-00h';
-      },
+      labelFormat: 'name',
       itemStyle: {
         color: '#8A9197',
         cursor: 'pointer',
@@ -127,7 +131,8 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
       enabled: false
     },
 
-    series: stackedData.map(({ data, color }, index: number) => ({
+    series: stackedData.map(({ data, color }: stackedDataProps, index: number) => ({
+      type,
       name: `Bar ${index + 1}`,
       data,
       color

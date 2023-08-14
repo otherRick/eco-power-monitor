@@ -1,6 +1,6 @@
 import { HandRaisedIcon } from '@heroicons/react/24/outline';
 import { Accordion } from '../../../../components/Accordion';
-import Table from './components/table';
+import Table from './Table';
 
 export const Predictions = () => {
   return (

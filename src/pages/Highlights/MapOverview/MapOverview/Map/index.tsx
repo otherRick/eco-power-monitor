@@ -2,20 +2,23 @@ import { useEffect, useRef } from 'react';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import Highcharts from 'highcharts';
-import { windmell } from '../../../../../components/icons/windmellSVG';
+import { windmell } from '../../../../../components/icons/windmillSVG';
 import { megaphone } from '../../../../../components/icons/megaphone';
 import { lightningbolt } from '../../../../../components/icons/lightningbolt';
 
-export const LeafMap = () => {
-  const charSection = [20, 20, 20, 20, 20];
+const charSection = [20, 20, 20, 20, 20];
 
-  const colorSets = [
-    ['#FFDE54', '#FFDE54', '#B1B9C3', '#B1B9C3', '#FFDE54'],
-    ['#B1B9C3', '#F53E3E', '#B1B9C3', '#B1B9C3', '#B1B9C3'],
-    ['#1FD3A6', '#1FD3A6', '#B1B9C3', '#1FD3A6', '#1FD3A6'],
-    ['#FFDE54', '#FFDE54', '#B1B9C3', '#B1B9C3', '#FFDE54'],
-    ['#1FD3A6', '#1FD3A6', '#1FD3A6', '#1FD3A6', '#1FD3A6']
-  ];
+const colorSets = [
+  ['#FFDE54', '#FFDE54', '#B1B9C3', '#B1B9C3', '#FFDE54'],
+  ['#B1B9C3', '#F53E3E', '#B1B9C3', '#B1B9C3', '#B1B9C3'],
+  ['#1FD3A6', '#1FD3A6', '#B1B9C3', '#1FD3A6', '#1FD3A6'],
+  ['#FFDE54', '#FFDE54', '#B1B9C3', '#B1B9C3', '#FFDE54'],
+  ['#1FD3A6', '#1FD3A6', '#1FD3A6', '#1FD3A6', '#1FD3A6']
+];
+
+export const Map = () => {
+  const mapRef = useRef(null);
+  const chartRefs = useRef([]);
 
   const data = [
     {
@@ -44,9 +47,6 @@ export const LeafMap = () => {
       statusText: `<div style="font-size: 10px; gap: 2px; display: flex; flex-direction: column; padding: 5px; color: #0B1C2C"><p>Subparque 05</p> <div style="background-color:rgba(11, 28, 44, 0.2); display: flex; flex-direction: row; justify-content: center; align-items: center; padding: 2px"> ${windmell.small}  <p style="margin-right: 2px"> 08/10</p>  ${megaphone} <p> 07 </p> </div> <div style="background-color:rgba(11, 28, 44, 0.2); display: flex; flex-direction: row; justify-content: start; align-items: center; padding: 2px">${lightningbolt} <p> 68% Mh</p></div></div>`
     }
   ];
-
-  const mapRef = useRef(null);
-  const chartRefs = useRef([]);
 
   useEffect(() => {
     const map = (mapRef.current = L.map('map').setView([-3.530094, -38.889987], 14));

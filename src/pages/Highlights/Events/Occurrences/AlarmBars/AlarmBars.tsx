@@ -3,13 +3,13 @@ import ProgressBar from '../../../../../components/ProgressBar';
 interface AlarmsBarsProps {
   color: string;
   title: string;
-  value: string;
+  value: number;
 }
 
 export const AlarmBars = ({ color, title, value }: AlarmsBarsProps) => {
   const stackedData = [
-    { data: [60], color: '#E5E9EE' },
-    { data: [30], color: color }
+    { data: [100], color: '#E5E9EE' },
+    { data: [value], color: color }
   ];
 
   const positioner = () => {
@@ -30,7 +30,7 @@ export const AlarmBars = ({ color, title, value }: AlarmsBarsProps) => {
           stackedData={stackedData}
         />
         <div className=' w-8'>
-          <p className=' text-sm text-brand-grey8 mt-4'>{value}</p>
+          <p className=' text-sm text-brand-grey8 mt-4 ml-2'>{value}%</p>
         </div>
       </div>
     </div>

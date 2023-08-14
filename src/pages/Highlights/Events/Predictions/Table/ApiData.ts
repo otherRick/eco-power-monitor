@@ -14,7 +14,7 @@ export const ApiData: ApiDataType[] = [
   {
     id: 23443,
     status: true,
-    alarm: 'Item C',
+    alarm: 'Nulla viverra vulputate elit',
     assetType: 'Molestie magna',
     asset: 'ABC-08-01',
     system: 'Environment',
@@ -25,7 +25,7 @@ export const ApiData: ApiDataType[] = [
   {
     id: 45652,
     status: true,
-    alarm: 'Item A',
+    alarm: 'Purus viverra vulputate elit',
     assetType: 'Molestie magna',
     asset: 'ABC-08-01',
     system: 'Environment',
@@ -36,7 +36,7 @@ export const ApiData: ApiDataType[] = [
   {
     id: 96543,
     status: true,
-    alarm: 'Item B',
+    alarm: 'Vestibulum viverra vulputate elit',
     assetType: 'Molestie magna',
     asset: 'ABC-08-01',
     system: 'Environment',
@@ -47,7 +47,7 @@ export const ApiData: ApiDataType[] = [
   {
     id: 12386,
     status: true,
-    alarm: 'Item F',
+    alarm: 'Maecenas viverra vulputate elit',
     assetType: 'Molestie magna',
     asset: 'ABC-08-01',
     system: 'Environment',
@@ -58,7 +58,7 @@ export const ApiData: ApiDataType[] = [
   {
     id: 34567,
     status: true,
-    alarm: 'Item D',
+    alarm: 'Aliquam viverra vulputate elit',
     assetType: 'Molestie magna',
     asset: 'ABC-08-01',
     system: 'Environment',
@@ -69,7 +69,7 @@ export const ApiData: ApiDataType[] = [
   {
     id: 67543,
     status: true,
-    alarm: 'Item E',
+    alarm: 'Nunc viverra vulputate elit',
     assetType: 'Molestie magna',
     asset: 'ABC-08-01',
     system: 'Environment',

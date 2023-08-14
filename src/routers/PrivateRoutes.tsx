@@ -4,10 +4,10 @@ import Sidebar from '../components/Sidebar/Sidebar';
 import { Header } from '../components/Header/Header';
 import { useLayout } from '../contexts/LayoutContext';
 import { ExclamationTriangleIcon } from '@heroicons/react/20/solid';
+import Highlights from '../pages/Highlights';
 
 export default function PrivateRoutes() {
-  const LandingPage = lazy(() => import('../pages/landingPage'));
-  const Highlights = lazy(() => import('../pages/Highlights/Highlights'));
+  const LandingPage = lazy(() => import('../pages/LandingPage'));
 
   const { isSidebarExpanded } = useLayout();
 
