@@ -5,18 +5,29 @@ Welcome to the Eco Power Monitor project, an exclusive hiring test project creat
 ## Table of Contents
 
 1. [Introduction](#introduction)
-2. [Features](#features)
-3. [Getting Started](#getting-started)
-4. [Installation](#installation)
-5. [Usage](#usage)
-6. [Dependencies](#dependencies)
-7. [Desirable Features](#desirable-features)
-8. [Troubleshooting](#troubleshooting)
-9. [Acknowledgments](#acknowledgments)
+2. [Deployment](#deployment)
+3. [Features](#features)
+4. [Getting Started](#getting-started)
+5. [Installation](#installation)
+6. [Usage](#usage)
+7. [Dependencies](#dependencies)
+8. [Desirable Features](#desirable-features)
+9. [Troubleshooting](#troubleshooting)
+10. [Acknowledgments](#acknowledgments)
 
 ## Introduction
 
 Eco Power Monitor is a mid-level front-end developer hiring test project. The aim of this project is to evaluate HTML, CSS, and JavaScript skills in developing responsive web interfaces. The project is based on a detailed Figma design guide provided by Delfos I.M.
+
+
+## Deployment
+
+The project is deployed using GitHub Pages. You can access the deployed version by clicking the link below:
+
+[Open Deployed App](https://otherrick.github.io/eco-power-monitor/)
+
+This link will take you to the live version of the project hosted on GitHub Pages.
+
 
 ## Features
 
