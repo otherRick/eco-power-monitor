@@ -1,4 +1,4 @@
-import { lazy, Suspense } from 'react';
+import { Suspense } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Sidebar from '../components/Sidebar/Sidebar';
 import { Header } from '../components/Header/Header';
